@@ -1,0 +1,4 @@
+# entornos virtuales
+venv/
+.env/
+fastApi-env/

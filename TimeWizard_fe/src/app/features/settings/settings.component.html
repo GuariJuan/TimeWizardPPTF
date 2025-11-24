@@ -1,0 +1,49 @@
+<div class="mx-5 my-3">
+    <!-- Título -->
+    <p class="h3 fw-bold text-start my-3">
+        Ajustes
+    </p>
+
+    <!-- Modo Oscuro / Claro -->
+    <div class="form-check form-switch my-3">
+        <input class="form-check-input" type="checkbox" id="themeSwitch" (change)="toggleTheme()"
+            [checked]="currentTheme === 'dark'">
+        <label class="form-check-label" for="themeSwitch">
+            {{ currentTheme === 'dark' ? 'Dark' : 'Light' }}
+            <i class="bi" [ngClass]="currentTheme === 'dark' ? 'bi-moon-fill' : 'bi-sun-fill'"></i>
+        </label>
+    </div>
+
+    <!-- Selección de Idioma -->
+    <div class="mb-3 w-25 my-4">
+        <label for="languageSelect" class="form-label">Idioma</label>
+        <select class="form-select" id="languageSelect" [(ngModel)]="selectedLanguage">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
+
+    <!-- Notificaciones -->
+    <div class="form-check w-25 my-4">
+        <input class="form-check-input" type="checkbox" id="notificationsSwitch" [(ngModel)]="notificationsEnabled">
+        <label class="form-check-label" for="notificationsSwitch">
+            Activar Notificaciones <i class="bi bi-bell-fill"></i>
+        </label>
+    </div>
+
+    <!-- Tamaño de Fuente -->
+    <div class="mb-3 w-25 my-4">
+        <label for="fontSizeSelect" class="form-label">Tamaño de Fuente</label>
+        <select class="form-select" id="fontSizeSelect" [(ngModel)]="fontSize">
+            <option value="small">Pequeño</option>
+            <option value="medium">Mediano</option>
+            <option value="large">Grande</option>
+        </select>
+    </div>
+
+    <!-- Botón para Restablecer Ajustes -->
+    <button class="btn btn-danger mt-3" (click)="resetSettings()">
+        Restablecer Ajustes <i class="bi bi-arrow-counterclockwise"></i>
+    </button>
+</div>

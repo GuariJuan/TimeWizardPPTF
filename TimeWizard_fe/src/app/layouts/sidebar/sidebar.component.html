@@ -1,0 +1,19 @@
+<div class="sidebar">
+    <ul>
+        <li style="cursor: pointer;" routerLink="/home">
+            <i class="pi pi-chart-pie fs-5"></i> Dashboard
+        </li>
+        <li style="cursor: pointer;" routerLink="/home/estimates">
+            <i class="pi pi-calendar-clock fs-5" ></i> Estimaciones
+        </li>
+        <!-- AJUSTES -->
+        <li style="cursor: pointer;" routerLink="/home/settings">
+            <i class="pi pi-wrench fs-5"></i> Ajustes
+        </li>
+    </ul>
+    <!-- SALIR -->
+    <li style="cursor: pointer;" (click)="logout()">
+        <i class="bi bi-box-arrow-right fs-5" title="Salir"></i>Salir
+    </li>
+</div>
+<app-spinner [isLoading]="isLoading"></app-spinner>

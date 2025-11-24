@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import "primeicons/primeicons.css";
+
+:root[data-bs-theme='dark'] {
+    /* Colores de fondo */
+    --background-color-primary: #2E323F;
+    --background-color-secondary: #363946;
+
+    /* Colores de texto */
+    --text-color-primary: #E0E0E0;
+    --text-color-secondary: #B0B0B0;
+    --text-color-placeholder: #666666;
+
+    /* Colores de botones */
+    --btn-color-primary: #6200EE;
+    --btn-text-color-primary: #FFFFFF;
+    --btn-color-secondary: #03DAC6;
+    --btn-text-color-secondary: #121212;
+    --btn-hover-color: #3700B3;
+    --btn-active-color: #03DAC6;
+
+    /* Colores de enlaces */
+    --link-color: #BB86FC;
+
+    /* Colores de bordes y divisores */
+    --border-and-divider-color: #333333;
+
+    /* Colores de errores y alertas */
+    --background-error-color: #B00020;
+    --text-error-color: #FFFFFF;
+    --background-success-color: #388E3C;
+    --text-success-color: #FFFFFF;
+    --background-warning-color: #FFAB00;
+    --text-warning-color: #121212;
+
+    /* Colores de inputs */
+    --input-background-color: #333333;
+    --input-text-color: #E0E0E0;
+    --input-border-color: #444444;
+    --input-focus-border-color: #6200EE;
+    --input-placeholder-color: #666666;
+
+    /* Colores de tarjetas y paneles */
+    --card-background-color: #1E1E1E;
+    --card-border-color: #333333;
+}
+
+:root[data-bs-theme='light'] {
+    --background-color-primary: #FFFFFF;
+    --background-color-secondary: #F0F0F0;
+    --text-color-primary: #000000;
+    --text-color-secondary: #333333;
+    --text-color-placeholder: #888888;
+    --btn-color-primary: #6200EE;
+    --btn-text-color-primary: #FFFFFF;
+    --btn-color-secondary: #03DAC6;
+    --btn-text-color-secondary: #121212;
+    --btn-hover-color: #3700B3;
+    --btn-active-color: #03DAC6;
+    --link-color: #1A73E8;
+    --border-and-divider-color: #CCCCCC;
+    --background-error-color: #FFCDD2;
+    --text-error-color: #B00020;
+    --background-success-color: #C8E6C9;
+    --text-success-color: #388E3C;
+    --background-warning-color: #FFF9C4;
+    --text-warning-color: #F57C00;
+    --input-background-color: #FFFFFF;
+    --input-text-color: #000000;
+    --input-border-color: #CCCCCC;
+    --input-focus-border-color: #6200EE;
+    --input-placeholder-color: #888888;
+    --card-background-color: #FFFFFF;
+    --card-border-color: #CCCCCC;
+}
+
+html,
+body {
+    background-color: var(--background-color-primary);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.login-card {
+    background: var(--background-color-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: var(--text-color-primary);
+    width: 350px;
+}
+
+main {
+    margin-left: 300px;
+    padding-top: 100px;
+    height: calc(100vh);
+    overflow: auto;
+}
+
+app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--background-color-secondary);
+    color: white;
+    z-index: 1000;
+    padding: 5px;
+    overflow: hidden;
+}
+
+app-sidebar {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 60px);
+    padding: 25px 0;
+    background-color: var(--background-color-secondary);
+    color: white;
+    z-index: 1000;
+    overflow-y: hidden;
+}
+
+.sidebar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li i {
+    margin-right: 10px;
+}
+
+.hamburger-menu {
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.p-field {
+    margin-bottom: 1rem;
+}
+
+.p-field label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+input[pInputText] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: var(--input-background-color);
+    color: var(--text-color-primary);
+}
+
+button[pButton] {
+    width: 100%;
+    background-color: var(--btn-color-primary);
+    border: none;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: var(--btn-color-primary);
+    border-color: var(--btn-color-primary);
+}
+
+.p-inputtext:enabled:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.1rem var(--btn-active-color);
+    border-color: var(--btn-active-color);
+}
+
+.p-inputtext:enabled:hover {
+    border-color: var(--btn-hover-color);
+}
+
+.chart-pie-container {
+    width: 30%;
+    background-color: var(--background-color-secondary);
+    margin: 1%;
+    padding: 1%;
+}
+
+.chart-line-container {
+    width: 65%;
+    background-color: var(--background-color-secondary);
+    margin: 1%;
+    padding: 1%;
+}
+
+h1, h2, h3, h4, h5, h6, p, .h3, label, pre, span, li {
+    color: var(--text-color-primary);
+}

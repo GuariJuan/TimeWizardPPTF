@@ -1,0 +1,8 @@
+<div *ngIf="isLoading" class="overlay-spinner">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p *ngIf="messages.length > 0 && currentMessage" class="spinner-message">
+        {{ currentMessage }}
+    </p>
+</div>

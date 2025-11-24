@@ -1,0 +1,44 @@
+
+<!-- GRÁFICO TIEMPOS QA -->
+<div class="container my-5">
+    <app-line-chart-compare 
+    [title]=titleQA
+    [labels]= ejeX
+    [seriesRLM]= seriesRLMQA
+    [seriesHorasReales]=seriesHorasRealesQA
+    [seriesXGB]=seriesXGBQA
+    />
+</div>
+
+<!-- GRÁFICO TIEMPOS BACK -->
+<div class="container my-5">
+    <app-line-chart-compare 
+    [title]=titleBK
+    [labels]= ejeX
+    [seriesRLM]= seriesRLMBK
+    [seriesHorasReales]=seriesHorasRealesBK
+    [seriesXGB]=seriesXGBBK
+    />
+</div>
+
+<!-- GRÁFICO TIEMPOS FRONT -->
+<div class="container my-5">
+    <app-line-chart-compare 
+    [title]=titleFR
+    [labels]= ejeX
+    [seriesRLM]= seriesRLMFR
+    [seriesHorasReales]=seriesHorasRealesFR
+    [seriesXGB]=seriesXGBFR
+    />
+</div>
+
+<!-- GRÁFICO TIEMPOS DESIGN -->
+<div class="container my-5">
+    <app-line-chart-compare 
+    [title]=titleDS
+    [labels]= ejeX
+    [seriesRLM]= seriesRLMDS
+    [seriesHorasReales]=seriesHorasRealesDS
+    [seriesXGB]=seriesXGBDS
+    />
+</div>

@@ -1,0 +1,51 @@
+<div class="container py-4">
+    <div class="card shadow-lg p-4">
+        <h3 class="mb-4 fw-bold text-primary border-bottom pb-2">🔢 Estimar esfuerzo</h3>
+        <form [formGroup]="fileUploadForm">
+            <div class="mb-4">
+                <label for="fileInput" class="form-label fw-semibold">Selecciona un archivo:</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="fileInput" (change)="onFileSelected($event)" />
+                </div>
+                <small class="form-text text-muted">Formato permitido: .csv, .xlsx</small>
+            </div>
+            <div class="d-flex justify-content-between mt-5">
+                <button class="btn btn-secondary" type="button" routerLink="/home/estimates">Volver</button>
+                <button class="btn btn-primary px-4 shadow" type="button" (click)="uploadFile()">
+                    <i class="bi bi-upload me-2"></i> Enviar archivo
+                </button>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-outline-info" type="button" (click)="previewFile()" [disabled]="!selectedFile">
+                    <i class="bi bi-eye"></i> Previsualizar Archivo
+                </button>
+            </div>
+        </form>
+
+        <div *ngIf="previewData.length > 0" class="mt-4">
+            <h5 class="text-secondary border-bottom pb-2">Vista previa del archivo</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th *ngFor="let header of previewHeaders">{{ header }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of previewData">
+                            <td *ngFor="let cell of row">{{ cell }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-spinner [isLoading]="isLoading" [messages]="[
+    'Cargando información...',
+    'Pensando 🤔...',
+    'Haciendo cálculos matemáticos 🧮...',
+    'Predicción en camino...'
+]" [rowCount]="rowCount" />

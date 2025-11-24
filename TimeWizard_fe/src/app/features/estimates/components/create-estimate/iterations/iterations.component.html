@@ -1,0 +1,27 @@
+<div class="mx-5 my-3">
+    <h3 class="mb-4 fw-bold" style="border-bottom: 1px solid;">Nueva Estimación</h3>
+    <div class="row">
+        <p class="h3">Iteración:</p>
+    </div>
+    @for (item of iterationService.iterations; track $index; let idx = $index) {
+    <span class="badge bg-secondary mx-1" [ngClass]="{'bg-dark': this.currentIteration == idx + 1}"
+        (click)="selectIteration(idx + 1)" style="cursor: pointer">{{
+        idx + 1}}</span>
+    }
+    <span>
+        <pre>{{ iterationService.iterations[currentIteration - 1] }}</pre>
+    </span>
+
+    <span>
+        <pre>Mejorar
+            <textarea [(ngModel)]="promptForImprovement" type="text" id="searchByName" class="form-control" placeholder="Describa los cambios..."
+            aria-label="Buscar">
+        </textarea>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary ms-2" type="submit" (click)="addImprovement()">Agregar mejora</button>
+            <button class="btn btn-primary ms-2" type="submit" (click)="finish()">Terminar (iteración {{currentIteration}})</button>
+        </div>            
+        </pre>
+    </span>
+
+</div>

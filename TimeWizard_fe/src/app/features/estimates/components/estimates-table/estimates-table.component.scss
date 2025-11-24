@@ -1,0 +1,10 @@
+.table > :not(caption) > * > * {
+    background-color: var(--background-color-secondary);
+    color: var(--text-color-primary);
+}
+
+.page-link{
+    background-color: var(--background-color-secondary);
+    color: var(--text-color-primary);
+    margin: 10px;
+}
