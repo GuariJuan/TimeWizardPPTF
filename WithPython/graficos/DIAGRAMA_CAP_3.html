@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo Conceptual del Capítulo 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { font-family: 'Inter', sans-serif; font-size: 18px; }
+        .bg-gradient-flow { background-color: #ffffff; }
+        .phase-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 110px;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin: 1.2rem 0;
+        }
+        .sub-steps-container {
+            margin-top: 1rem;
+            padding: 0.9rem;
+            border-radius: 0.75rem;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+        }
+        .sub-step {
+            padding: 0.5rem 0.9rem;
+            margin: 0.55rem 0;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* ⭐ NUEVO ESTILO DE FLECHAS ⭐ */
+        .flow-arrow {
+            width: 6px;
+            height: 45px;
+            margin: 0.5rem auto;
+            position: relative;
+            border-radius: 3px;
+            background: linear-gradient(to bottom, #64748b, #475569);
+            box-shadow: 0 0 6px rgba(0,0,0,0.15);
+        }
+        .flow-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-top: 12px solid #475569;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
+        }
+
+        .color-stage-1 { background-color: #10b981; }
+        .color-stage-2 { background-color: #3b82f6; }
+        .color-stage-3 { background-color: #f59e0b; }
+        .color-stage-4 { background-color: #ef4444; }
+        .color-stage-5 { background-color: #8b5cf6; }
+    </style>
+</head>
+<body class="bg-gradient-flow p-6 md:p-10">
+
+    <div class="max-w-xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-gray-800 mb-10 text-center">
+            Análisis Exploratorio de Datos
+        </h1>
+
+        <div class="phase-node color-stage-1">
+            <span class="font-black text-2xl text-center w-full">RECOLECCIÓN DE DATOS INICIALES</span>
+            <p class="text-xl mt-1">Datos de Proyectos Históricos (Openix)</p>
+        </div>
+
+        <div class="flow-arrow"></div>
+
+        <div class="phase-node color-stage-2">
+            <span class="font-black text-2xl text-center w-full">ANÁLISIS Y PREPARACIÓN DE LOS DATOS</span>
+            <p class="text-xl mt-1">Limpieza, transformación y división de datos</p>
+            <div class="sub-steps-container">
+                <div class="sub-step">Evaluación de Calidad y Nulos</div>
+                <div class="sub-step">Tratamiento de Outliers</div>
+                <div class="sub-step">Codificación Categórica</div>
+                <div class="sub-step">Transformación Logarítmica y Estandarización</div>
+                <div class="sub-step">División (Entrenamiento / Prueba)</div>
+            </div>
+        </div>
+
+        <div class="flow-arrow"></div>
+
+        <div class="phase-node color-stage-3">
+            <span class="font-black text-2xl text-center w-full">JUSTIFICACIÓN DEL DATASET</span>
+            <p class="text-xl mt-1">Evaluación de suficiencia, representatividad y coherencia</p>
+        </div>
+
+        <div class="flow-arrow"></div>
+
+        <div class="phase-node color-stage-4">
+            <span class="font-black text-2xl text-center w-full">ANÁLISIS FINAL DEL DATASET PREPROCESADO</span>
+            <p class="text-xl mt-1">Evaluación de interdependencia entre variables</p>
+            <div class="sub-steps-container">
+                <div class="sub-step">Matriz de Correlación de Pearson</div>
+                <div class="sub-step">Cálculo del VIF</div>
+                <div class="sub-step">Eliminación de Variables Redundantes</div>
+            </div>
+        </div>
+
+        <div class="flow-arrow"></div>
+
+        <div class="phase-node color-stage-5">
+            <span class="font-black text-2xl text-center w-full">VALIDACIÓN FINAL DEL DATASET</span>
+            <p class="text-xl mt-1">Análisis visual pre-modelado</p>
+            <div class="sub-steps-container">
+                <div class="sub-step">Distribuciones (Histogramas)</div>
+                <div class="sub-step">Outliers (Boxplots)</div>
+                <div class="sub-step">Relaciones (Pairplots)</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

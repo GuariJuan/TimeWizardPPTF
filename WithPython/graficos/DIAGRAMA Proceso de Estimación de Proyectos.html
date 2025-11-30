@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flujo de Estimación – Diagrama Moderno</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+        color: #6c757d;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .diagram-container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    /* BASE */
+    .node {
+        fill: #fff;
+        stroke-width: 2.5;
+        rx: 16;
+        ry: 16;
+        filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.08));
+    }
+
+    .text { 
+        font-size: 15px;
+        font-weight: 600;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: #1f2937;
+    }
+
+    /* ESTILOS */
+    .start-end { stroke: #6366f1; fill: url(#gradientPurple); }
+    .start-end-text { fill: white; font-weight: 700; }
+
+    .core {
+        stroke: #10b981;
+        stroke-width: 3.5;
+        fill: url(#gradientGreen);
+    }
+    .core-text { fill: #065f46; font-weight: 700; }
+
+    .activity { stroke: #3b82f6; fill: url(#gradientBlue); }
+
+    .decision { stroke: #8b5cf6; fill: url(#gradientViolet); stroke-width: 3; }
+    .decision-text { fill: #5b21b6; font-weight: 700; }
+
+    .arrow {
+        stroke: #4b5563;
+        stroke-width: 2.5;
+        fill: none;
+        marker-end: url(#arrowhead);
+    }
+
+    .arrow-return {
+        stroke: #ef4444;
+        stroke-width: 3;
+        fill: none;
+        marker-end: url(#arrowhead-red);
+        stroke-dasharray: 8,5;
+    }
+
+    .arrow-text { font-size: 14px; fill:#374151; font-weight: 700; }
+    .arrow-text-return { font-size:14px; fill:#ef4444; font-weight:700; }
+
+    .area-badge {
+        fill: url(#gradientArea);
+        stroke: #0ea5e9;
+        stroke-width: 3;
+        filter: drop-shadow(0px 6px 16px rgba(14,165,233,0.3));
+    }
+
+    .area-text {
+        font-size: 13px;
+        font-weight: 700;
+        text-anchor: middle;
+        fill: white;
+    }
+
+</style>
+</head>
+
+<body>
+<div class="diagram-container">
+<h1 class="title">Proceso de Estimación de Proyectos</h1>
+<p class="subtitle">El prototipo es utilizado principalmente por el Área Comercial</p>
+<svg width="950" height="940" viewBox="0 0 950 940">
+
+    <!-- GRADIENTES -->
+    <defs>
+        <linearGradient id="gradientPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#818cf8"/>
+            <stop offset="100%" stop-color="#6366f1"/>
+        </linearGradient>
+
+        <linearGradient id="gradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#dbeafe"/>
+            <stop offset="100%" stop-color="#bfdbfe"/>
+        </linearGradient>
+
+        <linearGradient id="gradientGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#d1fae5"/>
+            <stop offset="100%" stop-color="#a7f3d0"/>
+        </linearGradient>
+
+        <linearGradient id="gradientViolet" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ede9fe"/>
+            <stop offset="100%" stop-color="#ddd6fe"/>
+        </linearGradient>
+
+        <linearGradient id="gradientArea" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="100%" stop-color="#0284c7"/>
+        </linearGradient>
+
+        <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#4b5563"/>
+        </marker>
+
+        <marker id="arrowhead-red" markerWidth="12" markerHeight="12" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+        </marker>
+    </defs>
+
+    <!-- CÍRCULO MÁS SEPARADO (solo este cambio) -->
+    <circle class="area-badge" cx="475" cy="110" r="70"/>
+    <text class="area-text" x="475" y="102">👔</text>
+    <text class="area-text" x="475" y="120">ÁREA</text>
+    <text class="area-text" x="475" y="138">COMERCIAL</text>
+
+    <!-- INICIO -->
+    <rect class="node start-end" x="325" y="220" width="300" height="65"/>
+    <text class="text start-end-text" x="475" y="252">Inicio: Requerimiento del Cliente</text>
+
+    <!-- BURBUJA UNIFICADA -->
+    <rect class="node core" x="300" y="320" width="350" height="160"/>
+    <rect class="node core" x="300" y="320" width="350" height="160"/>
+    <text class="text core-text" x="475" y="350" style="font-weight: bold; text-anchor: middle;">INGRESO DE VARIABLES</text>
+    <text class="text" x="475" y="380" style="font-size:12px; fill:#333;">Input: Complejidad, Tecnologías y Experiencia del equipo</text>
+    <text class="text" x="475" y="420" style="font-size:16px; fill:#008000; text-anchor: middle; font-weight: bold;">CÁLCULO DE ESTIMACION 🤖</text>
+    <text class="text" x="475" y="445" style="font-size:14px; fill:#0056b3; text-anchor: middle;">(Prototipo)</text>
+
+    <!-- PROPUESTA -->
+    <rect class="node activity" x="325" y="510" width="300" height="65"/>
+    <text class="text" x="475" y="542">Elaboración de Propuesta y Cronograma</text>
+
+    <!-- DECISIÓN -->
+    <polygon class="node decision" points="475,610 660,690 475,770 290,690"/>
+    <text class="text decision-text" x="475" y="680">¿Cliente solicita ajustes</text>
+    <text class="text decision-text" x="475" y="705">o negociación?</text>
+
+    <!-- FIN -->
+    <rect class="node start-end" x="325" y="810" width="300" height="65"/>
+    <text class="text start-end-text" x="475" y="842">Fin del Proceso de Estimación</text>
+
+    <!-- FLECHAS -->
+    <line class="arrow" x1="475" y1="180" x2="475" y2="220"/>
+    <line class="arrow" x1="475" y1="285" x2="475" y2="320"/>
+    <line class="arrow" x1="475" y1="480" x2="475" y2="510"/>
+    <line class="arrow" x1="475" y1="575" x2="475" y2="610"/>
+
+    <line class="arrow" x1="475" y1="770" x2="475" y2="810"/>
+    <text class="arrow-text" x="520" y="790">✓ No (Aceptación)</text>
+
+    <!-- LOOP -->
+
+    <path class="arrow-return"
+    d="M 660 690
+       L 760 690
+       C 800 690, 820 670, 820 630
+       L 820 280
+       C 820 260, 800 250, 780 250
+       L 640 250" />
+
+
+
+    <text class="arrow-text-return" x="860" y="450">⤴ Sí (Ajuste)</text>
+    <text class="arrow-text-return" x="858" y="470" style="font-size:12px;">Volver al Inicio</text>
+
+</svg>
+</div>
+</body>
+</html>
